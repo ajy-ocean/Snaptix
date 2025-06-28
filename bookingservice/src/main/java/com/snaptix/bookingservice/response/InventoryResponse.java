@@ -1,21 +1,20 @@
-package com.snaptix.inventoryservice.response;
+package com.snaptix.bookingservice.response;
 
-import com.snaptix.inventoryservice.entity.Venue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.repository.NoRepositoryBean;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
 @Builder
-@NoRepositoryBean
+@NoArgsConstructor
 @AllArgsConstructor
-public class EventInventoryResponse {
+public class InventoryResponse {
     private Long eventId;
     private String event;
     private Long capacity;
-    private Venue venue;
+    private VenueResponse venueResponse;
     private BigDecimal ticketPrice;
 }

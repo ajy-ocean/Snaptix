@@ -1,10 +1,9 @@
 package com.snaptix.inventoryservice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
@@ -29,4 +28,7 @@ public class Event {
     @ManyToOne
     @JoinColumn(name="venue_id")
     private Venue venue;
+
+    @Column(name="ticket_price")
+    private BigDecimal ticketPrice;
 }

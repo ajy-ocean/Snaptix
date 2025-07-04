@@ -3,7 +3,7 @@ package com.snaptix.inventoryservice.service;
 import com.snaptix.inventoryservice.entity.Event;
 import com.snaptix.inventoryservice.entity.Venue;
 import com.snaptix.inventoryservice.repository.EventRepository;
-import com.snaptix.inventoryservice.repository.VenuRepository;
+import com.snaptix.inventoryservice.repository.VenueRepository;
 import com.snaptix.inventoryservice.response.EventInventoryResponse;
 import com.snaptix.inventoryservice.response.VenueInventoryResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +18,12 @@ import java.util.stream.Collectors;
 public class InventoryService {
 
     private final EventRepository eventRepository;
-    private final VenuRepository venuRepository;
+    private final VenueRepository venueRepository;
 
     @Autowired
-    public InventoryService(EventRepository eventRepository, VenuRepository venuRepository) {
+    public InventoryService(EventRepository eventRepository, VenueRepository venueRepository) {
         this.eventRepository = eventRepository;
-        this.venuRepository = venuRepository;
+        this.venueRepository = venueRepository;
     }
 
     public List<EventInventoryResponse> getAllEvents() {
@@ -37,7 +37,7 @@ public class InventoryService {
     }
 
     public VenueInventoryResponse getVenueInformation(final Long venueId) {
-        final Venue venue = venuRepository.findById(venueId).orElse(null);
+        final Venue venue = venueRepository.findById(venueId).orElse(null);
 
         return VenueInventoryResponse.builder()
                 .venueId(venue.getId())
